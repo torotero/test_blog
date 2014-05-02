@@ -1,9 +1,7 @@
-<h1>first new article</h1>
-
-
+<h1>editing article</h1>
 
 <!--
-<%= form_for :article, url: articles_path do |f| %>
+<%= form_for :article, url: article_path(@article),method: :patch do |f| %>
 
 
 
@@ -54,10 +52,9 @@
 
 	<% end %>
 
--->
-
-
+ -->
 
 
 	<%= render 'form' %>
+
 	<%= link_to 'Back', articles_path %>
