@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	def new
-		
+		@article=Article.new
 	end
 
 
@@ -18,9 +18,13 @@ class ArticlesController < ApplicationController
 		 # Article sesuai nama kelasnya Article
 		 # klo nama tabelnya = articles
 
-		 @article.save
+		if @article.save
 		 redirect_to @article
+		else
+			render 'new'
 
+			#kegunaan render= class @articles di kirim balik ke page setelah gagal pengecekan.
+		end
 
 
 	end
