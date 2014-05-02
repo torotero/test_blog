@@ -4,7 +4,44 @@ class ArticlesController < ApplicationController
 	end
 
 
-	def create
-		 render plain: params[:article].inspect
+	def index
+		@articles = Article.all
 	end
+
+
+	def create
+		 #render plain: params[:article].inspect
+		 #buat ngeliat isi pake inspect
+
+		 @article = Article.new(article_params)
+		 
+		 # Article sesuai nama kelasnya Article
+		 # klo nama tabelnya = articles
+
+		 @article.save
+		 redirect_to @article
+
+
+
+	end
+
+
+	def show
+		@article = Article.find(params[:id])
+	end
+
+
+
+
+
+	private
+
+	def article_params
+		params.require(:article).permit(:title,:text)
+		
+	end
+
+
+	
+
 end
